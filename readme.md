@@ -1,6 +1,13 @@
+## Me
+Hello! If you’re enjoying the script and feel like supporting the work that went into it, consider buying me a coffee ☕ https://buymeacoffee.com/core_scripts
+
 ## Core Namecheck
 
 Check if a player's name corresponds with their in-game name. Players may have more or less characters in their Fivem name, yet their name should still be in the mix of words. E.G. Name in game "John doe" name required in Fivem "John Doe" or anything in the lines of that e.g. "John Doe/Peter Pan"
+
+## Screenshot
+
+![image.png](https://i.postimg.cc/xTsMGQd5/image.png)
 
 ## Framework Support
 
