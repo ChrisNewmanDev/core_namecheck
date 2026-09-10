@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name Verification Lockout</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="lockout-container" style="display: none;">
+        <div class="lockout-box">
+            <div class="icon">⚠️</div>
+            <h2>Name Mismatch Detected</h2>
+            <p class="description">
+                To maintain server realism, your current FiveM profile name must contain your registered In-Game Character Name.
+            </p>
+            
+            <div class="details">
+                <div class="detail-row">
+                    <span class="label">Current Profile Name:</span>
+                    <span class="value critical" id="acc-name">Loading...</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Character Identity Needed:</span>
+                    <span class="value success" id="char-name">Loading...</span>
+                </div>
+            </div>
+
+            <div class="instructions">
+                <h3>How to resolve this issue:</h3>
+                <ol>
+                    <li>Press your <strong>F8</strong> key right now to open the game console.</li>
+                    <li>Type <code>quit</code> and press Enter to exit the game.</li>
+                    <li>Open your FiveM or Steam application settings.</li>
+                    <li>Update your display name so it includes your character name (e.g., adding it anywhere like <em>"Jon Doe/Peter Pan"</em> or <em>"Jon Doe"</em>).</li>
+                    <li>Relaunch FiveM and connect back to the server.</li>
+                </ol>
+            </div>
+            <div class="footer-notice">You may safely press F8 at any point to leave the server and make these adjustments.</div>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('message', function(event) {
+            if (event.data.action === "showLockout") {
+                document.getElementById('acc-name').innerText = event.data.accountName;
+                document.getElementById('char-name').innerText = event.data.characterName;
+                document.getElementById('lockout-container').style.display = 'flex';
+            }
+        });
+
+        window.addEventListener('DOMContentLoaded', function() {
+            fetch(`https://${GetParentResourceName()}/ready`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json; charset=UTF-8' },
+                body: JSON.stringify({})
+            }).catch(function() {});
+        });
+    </script>
+</body>
+</html>
