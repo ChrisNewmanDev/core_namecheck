@@ -1,3 +1,7 @@
+##core_namecheck
+
+Check if a player's name corresponds with their in-game name. Players may have more or less characters in their Fivem name, yet their name should still be in the mix of words. E.G. Name in game "John doe" name required in Fivem "John Doe" or anything in the lines of that e.g. "John Doe/Peter Pan"
+
 ## Framework Support
 
 This script works out of the box with both **QBCore** and **Qbox**. It checks the player's name as soon as they spawn in (via `QBCore:Client:OnPlayerLoaded` / `qbx_core:client:playerLoaded`), with the raw `QBCore:Server:PlayerLoaded` / `qbx_core:server:playerLoaded` events as a backup. No extra configuration is needed to pick a framework.
